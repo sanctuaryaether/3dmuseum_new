@@ -81,7 +81,7 @@ renderer.setClearColor(0xffffff, 1);
 // 🎨 Configuración correcta del renderer (colocar justo después de su creación)
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.5;
-renderer.outputEncoding = THREE.sRGBEncoding;
+renderer.outputEncoding = THREE.SRGBColorSpace;
 
 // Importante si usas EffectComposer:
 renderer.autoClear = false;
@@ -91,9 +91,9 @@ renderer.autoClear = false;
 
 
 // Corrección de color
-renderer.outputEncoding = THREE.sRGBEncoding;
+renderer.outputEncoding = THREE.SRGBColorSpace;
 
-  renderer.outputEncoding = (THREE.sRGBEncoding) ? THREE.sRGBEncoding : THREE.LinearEncoding;
+  renderer.outputEncoding = (THREE.SRGBColorSpace) ? THREE.SRGBColorSpace : THREE.LinearEncoding;
   renderer.shadowMap.enabled = false;
   container.appendChild(renderer.domElement);
 
@@ -228,7 +228,7 @@ bokehPass.materialBokeh.uniforms.focus.value = focusDistance;
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 
 renderer.toneMappingExposure = 0.5; // o el valor que te guste
-renderer.outputEncoding = THREE.sRGBEncoding;
+renderer.outputEncoding = THREE.SRGBColorSpace;
 renderer.autoClear = false; // necesario para EffectComposer
 
 
@@ -277,7 +277,7 @@ composer.addPass(smaaPass);
 // ⚙️ Renderer setup final
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.2; // sube a 1.5 para más brillo en bloom
-renderer.outputEncoding = THREE.sRGBEncoding;
+renderer.outputEncoding = THREE.SRGBColorSpace;
 renderer.autoClear = false;
 
 // 💡 Luces
