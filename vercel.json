@@ -1,0 +1,5 @@
+{
+  "framework": null,
+  "outputDirectory": "public",
+  "buildCommand": "git lfs install && git remote add origin https://github.com/sanctuaryaether/museum.git || true && git lfs fetch && git lfs checkout -- public/modelo.glb"
+}
