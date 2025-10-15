@@ -1,4 +1,3 @@
-// api/index.js
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
@@ -8,17 +7,22 @@ import hotspotsRoutes from "./routes/hotspots.js";
 dotenv.config();
 
 const app = express();
-app.use(cors());
+
+// Enable CORS for all origins (or restrict to your frontend domain)
+app.use(cors({
+  origin: "*" // Replace "*" with "https://museum-3d-map-test.vercel.app" in production
+}));
+
 app.use(express.json());
 
-// Conexión a MongoDB Atlas
+// Connect to MongoDB Atlas
 mongoose
   .connect(process.env.MONGODB_URI)
-  .then(() => console.log("✅ Conectado a MongoDB Atlas"))
-  .catch((err) => console.error("❌ Error de conexión a MongoDB:", err));
+  .then(() => console.log("✅ Connected to MongoDB Atlas"))
+  .catch((err) => console.error("❌ MongoDB connection error:", err));
 
-// Rutas
+// API routes
 app.use("/api/hotspots", hotspotsRoutes);
 
-// Exporta la app (no app.listen en Vercel)
+// Export app (for Vercel deployment)
 export default app;
