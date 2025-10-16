@@ -110,7 +110,7 @@ function init() {
   // === CARGA DE MODELO ===
   const loader = new GLTFLoader();
   loader.load(
-    'modelo_gordo.glb',
+    'https://github.com/sanctuaryaether/3dmuseum_new/releases/download/glb/modelo_gordo_old.glb',
     (gltf) => {
       model = gltf.scene;
       model.scale.set(1, 1, 1);
