@@ -3,11 +3,17 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-// Tu schema y modelo
 const hotspotSchema = new mongoose.Schema({
-  position: { x: Number, y: Number, z: Number },
+  position: {
+    x: { type: Number, default: 0 },
+    y: { type: Number, default: 0 },
+    z: { type: Number, default: 0 }
+  },
   title: String,
   description: String,
+  image: String,
+  text: String,
+  schedule: String
 });
 
 const Hotspot = mongoose.model("Hotspot", hotspotSchema);
@@ -16,7 +22,7 @@ const hotspots = [
   {
     title: 'De Aek',
     image: 'images/aek.jpg',
-    text: "Huisje ‘de Aek’ herbergt de permanente expositie ‘Vissers van Wad en Gat’. Bij binnenkomst links staat een vitrine met houtsnijwerk en voorwerpen die herinneren aan de ramp van 1883 waarbij 83 vissers verdronken. In een andere vitrine zijn herinneringen aan het reddingsstation te Moddergat te zien. Een tweetal diorama's met scheepsmodellen en vistechnieken. Ook staat hier een diorama met de redding van Gerben Basteleur. In de ruimte staat een maquette van het dorp omstreeks 1900. In 1816 wordt het huis dubbel bewoond, want dan staat ook zijn zoon Bote Klases Groen als eigenaar vermeld. In 1819 strandt Bote met zijn snik op het strand van Schiermonnikoog, samen met 8 andere snikken. In 1839 wordt het huis dubbel bewoond, want behalve het gezin van Willem Hendriks Mans woont er ook het jonge gezin van zijn zwager Gooitzen Jelles Basteleur. Hij is getrouwd met Mintje Minnes Zeilinga en er zijn twee kinderen, Martje en Jelle."
+    text: "Huisje ‘de Aek’ herbergt de permanente expositie…"
   },
   {
     title: "Wadlopen",

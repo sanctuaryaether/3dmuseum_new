@@ -1,5 +1,11 @@
 {
-  "framework": null,
-  "outputDirectory": "public",
-  "buildCommand": "git lfs install && git remote add origin https://github.com/sanctuaryaether/museum-3d-map_test || true && git lfs fetch && git lfs checkout -- public/modelo_draco.glb"
+  "version": 2,
+  "builds": [
+    { "src": "api/**/*.js", "use": "@vercel/node" },
+    { "src": "index.html", "use": "@vercel/static-build" }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/api/index.js" },
+    { "src": "/(.*)", "dest": "/" }
+  ]
 }
